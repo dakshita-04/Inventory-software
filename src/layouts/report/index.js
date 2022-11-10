@@ -1,10 +1,10 @@
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
+import { Link } from "react-router-dom";
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
-import { Link } from "react-router-dom";
 
 // Soft UI Dashboard React examples
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -14,12 +14,11 @@ import Footer from "examples/Footer";
 // Soft UI Dashboard React base styles
 import typography from "assets/theme/base/typography";
 import Breadcrumbs from "examples/Breadcrumbs";
-
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 
 
-function Dashboard() {
+function Report() {
   const { size } = typography;
   const { chart, items } = reportsBarChartData;
   const myStyle = {
@@ -33,49 +32,43 @@ function Dashboard() {
     <DashboardLayout>
       <DashboardNavbar />
       <SoftBox py={3} mb={15}>
-      <SoftTypography textAlign="center" mb={6} style={{color:"#0B2F8A",fontWeight:"700",fontSize:"22px",lineHeight:"30px"}}>Start your Inventory Management Journey</SoftTypography>
+      <SoftTypography textAlign="center" mb={6} style={{color:"#0B2F8A",fontWeight:"700",fontSize:"30px",lineHeight:"30px"}}>Reports</SoftTypography>
         <SoftBox mb={3} mt={10}>
         <Grid container spacing={12}>
-          
-            <Grid item xs={12} sm={6} xl={4}>
+            <Grid item xs={12} sm={6} xl={6}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
-            Production Order List 
+            <SoftTypography component={Link}
+            to="/inventory-transfer" style={{color:"white"}}>
+            Inventory Transfer Request 
+            Print Layout
+            </SoftTypography>
+            
             </SoftBox>
             </Grid>
-            <Grid item xs={12} sm={6} xl={4}>
+            <Grid item xs={12} sm={6} xl={6}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
-            Goods Receipt Note
+            ITR Print Layout with Barcode
             </SoftBox>
             </Grid>
-            <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
-            ITR Reports
-            </SoftBox>
-            </Grid>
+            
             
           </Grid>
         </SoftBox>
         <SoftBox mb={6} mt={10}>
         <Grid container spacing={12}>
           
-            <Grid item xs={12} sm={6} xl={4}>
+            <Grid item xs={12} sm={6} xl={6}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
-            Inventory Transfer Request List 
+            Inventory Transfer Layout
             </SoftBox>
             </Grid>
-            <Grid item xs={12} sm={6} xl={4}>
+            <Grid item xs={12} sm={6} xl={6}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
-            Inventory Transfer Approval List
+            Issue Delivery Challan
             </SoftBox>
             </Grid>
-            <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
-            <SoftTypography component={Link}
-            to="/report" style={{color:"white"}}>
-            Inventory Transfer Request 
-            </SoftTypography>
-            </SoftBox>
-            </Grid>
+            
+            
           </Grid>
         </SoftBox>
       </SoftBox>
@@ -84,4 +77,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Report;

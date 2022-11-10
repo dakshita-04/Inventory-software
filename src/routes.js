@@ -55,6 +55,8 @@ import SpaceShip from "examples/Icons/SpaceShip";
 import CustomerSupport from "examples/Icons/CustomerSupport";
 import CreditCard from "examples/Icons/CreditCard";
 import Cube from "examples/Icons/Cube";
+import  Report from 'layouts/report';
+import InventoryReport from "layouts/inventory-transfer";
 
 const routes = [
   {
@@ -137,6 +139,24 @@ const routes = [
     route: "/authentication/otp-verification",
     icon: <SpaceShip size="12px" />,
     component: <OtpVerification/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "Report",
+    key: "report",
+    route: "/report",
+    icon: <SpaceShip size="12px" />,
+    component: <Report/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "TransferReport",
+    key: "transfer-report",
+    route: "/inventory-transfer",
+    icon: <SpaceShip size="12px" />,
+    component: <InventoryReport/>,
     noCollapse: true,
   },
 ];

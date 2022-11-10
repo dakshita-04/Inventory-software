@@ -46,52 +46,25 @@ function Footer({ company, links }) {
         fontSize={size.sm}
         px={1.5}
       >
-        &copy; {new Date().getFullYear()}, made with
+        &copy; {new Date().getFullYear()}, Design
         <SoftBox fontSize={size.md} color="text" mb={-0.5} mx={0.25}>
-          <Icon color="inherit" fontSize="inherit">
-            favorite
-          </Icon>
         </SoftBox>
         by
-        <Link href={href} target="_blank">
+        <Link href={href} target="_blank"> 
           <SoftTypography variant="button" fontWeight="medium">
             &nbsp;{name}&nbsp;
           </SoftTypography>
         </Link>
-        for a better web.
+        for Inventory Distribution. 
       </SoftBox>
-      <SoftBox
-        component="ul"
-        sx={({ breakpoints }) => ({
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "center",
-          listStyle: "none",
-          mt: 3,
-          mb: 0,
-          p: 0,
-
-          [breakpoints.up("lg")]: {
-            mt: 0,
-          },
-        })}
-      >
-        {renderLinks()}
-      </SoftBox>
+      
     </SoftBox>
   );
 }
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-  links: [
-    { href: "https://www.creative-tim.com/", name: "Creative Tim" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
-  ],
+  company: { href: "", name: "Quantum IT Solution LLP" },
 };
 
 // Typechecking props for the Footer

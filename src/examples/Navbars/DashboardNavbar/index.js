@@ -34,7 +34,7 @@ import SoftTypography from "components/SoftTypography";
 import SoftInput from "components/SoftInput";
 
 // Soft UI Dashboard React examples
-import Breadcrumbs from "examples/Breadcrumbs";
+
 import NotificationItem from "examples/Items/NotificationItem";
 
 // Custom styles for DashboardNavbar
@@ -143,15 +143,14 @@ function DashboardNavbar({ absolute, light, isMini }) {
     >
       <Toolbar sx={(theme) => navbarContainer(theme)}>
         <SoftBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
-          <Breadcrumbs icon="home" title={route[route.length - 1]} route={route} light={light} />
-        </SoftBox>
+        <Icon className={light ? "text-white" : "text-dark"}style={{color:"#FF0080"}}>rocket</Icon>
+        <SoftTypography style={{color:"#FF0080",fontSize:"25px"}} ><strong>Inventory Distribution</strong></SoftTypography>
+        </SoftBox> 
+        
         {isMini ? null : (
           <SoftBox sx={(theme) => navbarRow(theme, { isMini })}>
-            <SoftBox pr={1}>
-              <SoftInput
-                placeholder="Type here..."
-                icon={{ component: "search", direction: "left" }}
-              />
+            <SoftBox pr={1} style={{color:"#0B2F8A",fontSize:"18px"}}>
+            <strong>Welcome, Admin Krishna Mohan</strong>
             </SoftBox>
             <SoftBox color={light ? "white" : "inherit"}>
               <Link to="/authentication/sign-in">
