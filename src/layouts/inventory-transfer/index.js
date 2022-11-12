@@ -1,6 +1,6 @@
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
-
+import { useState } from "react";
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
@@ -17,10 +17,7 @@ import Breadcrumbs from "examples/Breadcrumbs";
 // Data
 import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import SoftInput from "components/SoftInput";
-import { backgroundImage } from 'assets/images/curved-images/white-curved.jpeg';
-import { Box } from '@mui/material/Box';
-import { boxShadow } from 'assets/theme/functions/boxShadow';
-
+import "../modal.css"
 
 function InventoryReport() {
   const { size } = typography;
@@ -30,6 +27,17 @@ function InventoryReport() {
     fontSize:"20px",
     fontWeight:"500"
   };
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if(modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -60,10 +68,24 @@ function InventoryReport() {
       icon={{ component: "search", direction: "left" }}
     />
   </SoftBox>
-  <SoftButton variant="contained" color="info" style={{marginLeft:"20px",backgroundColor:"#0B2F8A",boxShadow:" 0px 8px 24px -2px rgba(11, 47, 138, 0.6)"}}>
+  <SoftButton variant="contained" color="info" style={{marginLeft:"20px",backgroundColor:"#0B2F8A",boxShadow:" 0px 8px 24px -2px rgba(11, 47, 138, 0.6)"}}
+  onClick={toggleModal}>
   Print Report
       </SoftButton>
       </SoftBox>
+  </SoftBox>
+  <SoftBox style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
+      {modal && (
+        <div className="modal">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modal-content">
+            <h4 style={{color:"#0B2F8A",marginTop:"20px"}}>Please Fill all the Required Fields</h4>
+            <button className="close-modal" onClick={toggleModal} style={{backgroundColor:"#0B2F8A",color:"white",border:"none",borderRadius:"5px",marginTop:"50px",marginBottom:"20px",boxShadow: " 0px 8px 24px -2px rgba(11, 47, 138, 0.6)"}}>
+              OK
+            </button>
+          </div>
+        </div>
+      )}
   </SoftBox>
       </SoftBox>
       <Footer />

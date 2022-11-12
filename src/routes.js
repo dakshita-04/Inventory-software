@@ -1,17 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v4.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-react
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 /** 
   All of the routes for the Soft UI Dashboard React are added here,
@@ -57,7 +43,13 @@ import CreditCard from "examples/Icons/CreditCard";
 import Cube from "examples/Icons/Cube";
 import  Report from 'layouts/report';
 import InventoryReport from "layouts/inventory-transfer";
-
+import ProductionOrderList from "layouts/production-order";
+import FilterCategory from "layouts/filter-category";
+import GoodsReceiptNote from "layouts/goods-receipt";
+import GoodsFilterCategory from "layouts/goods-receipt/filter-category";
+import InventoryTransferRequestList from "layouts/inventory-transfer-request-list";
+import InventoryTransferApproval from "layouts/inventory-transfer-approval";
+import InventoryTransferRequest from "layouts/inventory-transfer-request";
 const routes = [
   {
     type: "collapse",
@@ -157,6 +149,69 @@ const routes = [
     route: "/inventory-transfer",
     icon: <SpaceShip size="12px" />,
     component: <InventoryReport/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "ProductionOrderList",
+    key: "production-order-list",
+    route: "/production-order",
+    icon: <SpaceShip size="12px" />,
+    component: <ProductionOrderList/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "FilterCategory",
+    key: "filter-category",
+    route: "/filter-category",
+    icon: <SpaceShip size="12px" />,
+    component: <FilterCategory/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "GoodsReceiptNote",
+    key: "goods-receipt",
+    route: "/goods-receipt",
+    icon: <SpaceShip size="12px" />,
+    component: <GoodsReceiptNote/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "GoodsFilterNote",
+    key: "goods-filter",
+    route: "/goods-filter-note",
+    icon: <SpaceShip size="12px" />,
+    component: <GoodsFilterCategory/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "InventoryTransferRequestList",
+    key: "inventory-transfer-request-list",
+    route: "/inventory-transfer-request-list",
+    icon: <SpaceShip size="12px" />,
+    component: <InventoryTransferRequestList/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "InventoryTransferRequest",
+    key: "inventory-transfer-request",
+    route: "/inventory-transfer-request",
+    icon: <SpaceShip size="12px" />,
+    component: <InventoryTransferRequest/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "InventoryTransferApproval",
+    key: "inventory-transfer-approval",
+    route: "/inventory-transfer-approval",
+    icon: <SpaceShip size="12px" />,
+    component: <InventoryTransferApproval/>,
     noCollapse: true,
   },
 ];

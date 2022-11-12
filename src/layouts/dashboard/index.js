@@ -39,17 +39,28 @@ function Dashboard() {
           
             <Grid item xs={12} sm={6} xl={4}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
+            <SoftTypography component={Link}
+            to="/production-order" style={{color:"white"}}>
             Production Order List 
+            </SoftTypography>
             </SoftBox>
             </Grid>
             <Grid item xs={12} sm={6} xl={4}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
+            <SoftTypography component={Link}
+            to="/goods-receipt" style={{color:"white"}}>
             Goods Receipt Note
+            </SoftTypography>
+            
             </SoftBox>
             </Grid>
             <Grid item xs={12} sm={6} xl={4}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
-            ITR Reports
+            
+            <SoftTypography component={Link}
+            to="/inventory-transfer" style={{color:"white"}}>
+            ITR Reports 
+            </SoftTypography>
             </SoftBox>
             </Grid>
             
@@ -60,18 +71,25 @@ function Dashboard() {
           
             <Grid item xs={12} sm={6} xl={4}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
+            <SoftTypography component={Link}
+            to="/inventory-transfer-request-list" style={{color:"white"}}>
             Inventory Transfer Request List 
-            </SoftBox>
-            </Grid>
-            <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
-            Inventory Transfer Approval List
+            </SoftTypography>
             </SoftBox>
             </Grid>
             <Grid item xs={12} sm={6} xl={4}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
             <SoftTypography component={Link}
-            to="/report" style={{color:"white"}}>
+            to="/inventory-transfer-approval" style={{color:"white"}}>
+            Inventory Transfer Approval List 
+            </SoftTypography>
+            
+            </SoftBox>
+            </Grid>
+            <Grid item xs={12} sm={6} xl={4}>
+            <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
+            <SoftTypography component={Link}
+            to="/inventory-transfer-request" style={{color:"white"}}>
             Inventory Transfer Request 
             </SoftTypography>
             </SoftBox>

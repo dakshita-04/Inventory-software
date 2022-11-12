@@ -15,16 +15,25 @@ import SoftButton from "components/SoftButton";
 
 // Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
-
-// Images
 import curved6 from "assets/images/curved-images/curved-6.jpg";
-import { backgroundImage } from 'assets/images/curved-images/white-curved.jpeg';
+import "../modal.css"
 
 function SignIn() {
   const [rememberMe, setRememberMe] = useState(true);
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if(modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
   return (
     
     <CoverLayout
@@ -51,6 +60,7 @@ function SignIn() {
             variant="button"
             color ="default"
             fontWeight="medium"
+            onClick={toggleModal}
           >
           REQUEST OTP
           </SoftTypography>
@@ -71,6 +81,20 @@ function SignIn() {
           </SoftTypography>
         </SoftTypography>
       </SoftBox>
+      
+  <SoftBox style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
+  {modal && (
+    <div className="modal">
+      <div onClick={toggleModal} className="overlay"></div>
+      <div className="modal-content">
+        <h4 style={{color:"#0B2F8A",marginTop:"20px"}}>Please Fill all the Required Fields</h4>
+        <button className="close-modal" onClick={toggleModal} style={{backgroundColor:"#0B2F8A",color:"white",border:"none",borderRadius:"5px",marginTop:"50px",marginBottom:"20px",boxShadow: " 0px 8px 24px -2px rgba(11, 47, 138, 0.6)"}}>
+          OK
+        </button>
+      </div>
+    </div>
+  )}
+</SoftBox>
       </SoftBox>
     
     </CoverLayout>
