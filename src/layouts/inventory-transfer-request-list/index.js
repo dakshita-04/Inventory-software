@@ -42,7 +42,7 @@ function InventoryTransferRequestList() {
       <SoftBox py={3} mb={15} textAlign="center">
         <SoftTypography
           mb={6}
-          style={{ color: "#0B2F8A", fontWeight: "700", fontSize: "30px", lineHeight: "30px" }}
+          style={{ color: "#0B2F8A", fontWeight: "700", fontSize: "30px",fontFamily:"Open Sans", lineHeight: "30px"}}
         >
         Inventory Transfer Request List
         </SoftTypography>

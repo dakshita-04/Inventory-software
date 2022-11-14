@@ -20,11 +20,8 @@ import "../modal.css"
 
 function SignIn() {
   const [rememberMe, setRememberMe] = useState(true);
-
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
-
   const [modal, setModal] = useState(false);
-
   const toggleModal = () => {
     setModal(!modal);
   };

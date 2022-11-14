@@ -42,7 +42,7 @@ function InventoryReport() {
     <DashboardLayout>
       <DashboardNavbar />
       <SoftBox py={3} mb={15} textAlign="center">
-      <SoftTypography mb={6} style={{color:"#0B2F8A",fontWeight:"700",fontSize:"30px",lineHeight:"30px"}}>Reports</SoftTypography>
+      <SoftTypography mb={6} style={{color:"#0B2F8A",fontWeight:"700",fontSize:"30px",lineHeight:"30px",fontFamily:"Inter"}}>Reports</SoftTypography>
         <SoftBox mb={3} textAlign="center">
        <SoftTypography style={paragraph} textAlign="center">Inventory Transfer Request Print layout</SoftTypography>
       <SoftBox style={{display:"flex", justifyContent:"center"}} mt={6}>

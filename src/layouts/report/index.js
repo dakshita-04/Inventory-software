@@ -32,13 +32,13 @@ function Report() {
     <DashboardLayout>
       <DashboardNavbar />
       <SoftBox py={3} mb={15}>
-      <SoftTypography textAlign="center" mb={6} style={{color:"#0B2F8A",fontWeight:"700",fontSize:"30px",lineHeight:"30px"}}>Reports</SoftTypography>
+      <SoftTypography textAlign="center" mb={6} style={{color:"#0B2F8A",fontWeight:"700",fontSize:"30px",lineHeight:"30px",fontFamily: 'Inter'}}>Reports</SoftTypography>
         <SoftBox mb={3} mt={10}>
         <Grid container spacing={12}>
             <Grid item xs={12} sm={6} xl={6}>
             <SoftBox style={myStyle} textAlign="center" pt={5} pb={5}> 
             <SoftTypography component={Link}
-            to="/inventory-transfer" style={{color:"white"}}>
+            to="/inventory-transfer" style={{color:"white",fontFamily:"Open Sans"}}>
             Inventory Transfer Request 
             Print Layout
             </SoftTypography>
