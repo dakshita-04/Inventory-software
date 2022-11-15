@@ -1,7 +1,6 @@
 
 import { useState } from "react";
-import { storage } from "../firebase";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 // react-router-dom components
 import { Link } from "react-router-dom";
 
@@ -14,7 +13,6 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 import SoftInput from "components/SoftInput";
 import SoftButton from "components/SoftButton";
-import { FaPen } from 'react-icons/fa';
 
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
@@ -22,73 +20,60 @@ import Socials from "layouts/authentication/components/Socials";
 import Separator from "layouts/authentication/components/Separator";
 
 // Images
-import curved6 from "assets/images/curved-images/curved-6.jpg";
-import user from "assets/images/curved-images/user.png"
-import CoverLayout from 'layouts/authentication/components/CoverLayout';
+import curved6 from "assets/images/curved-images/curved14.jpg";
 
 function SignUp() {
   const [agreement, setAgremment] = useState(true);
 
   const handleSetAgremment = () => setAgremment(!agreement);
-  const [image, setImage] = useState(null);
-  const [url, setUrl] = useState(null);
 
-  const handleImageChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
-  };
-
-  const handleSubmit = () => {
-    const imageRef = ref(storage, "image");
-    uploadBytes(imageRef, image)
-      .then(() => {
-        getDownloadURL(imageRef)
-          .then((url) => {
-            setUrl(url);
-          })
-          .catch((error) => {
-            console.log(error.message, "error getting the image url");
-          });
-        setImage(null);
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
   return (
-    <CoverLayout 
-    title="Register"
-    image={curved6}
+    <BasicLayout
+      title="Welcome!"
+      description="Use these awesome forms to login or create new account in your project for free."
+      image={curved6}
     >
-        <SoftBox textAlign="center">
-          <img src={url} alt="user" style={{width:"50px",height:"50px"}}/>
-          <input type="file" onChange={handleImageChange} />
-          <button onClick={handleSubmit}>Submit</button>
-          <FaPen size={15}/>
+      <Card>
+        <SoftBox p={3} mb={1} textAlign="center">
+          <SoftTypography variant="h5" fontWeight="medium">
+            Register with
+          </SoftTypography>
+        </SoftBox>
+        <SoftBox mb={2}>
+          <Socials />
         </SoftBox>
         <Separator />
         <SoftBox pt={2} pb={3} px={3}>
           <SoftBox component="form" role="form">
             <SoftBox mb={2}>
-              <SoftInput type="text" placeholder="FullName" />
-            </SoftBox>
-            <SoftBox mb={2}>
-              <SoftInput type="tel" placeholder="PhoneNumber" />
+              <SoftInput placeholder="Name" />
             </SoftBox>
             <SoftBox mb={2}>
               <SoftInput type="email" placeholder="Email" />
             </SoftBox>
             <SoftBox mb={2}>
-              <SoftInput type="text" placeholder="Role" />
-            </SoftBox>
-            <SoftBox mb={2}>
-              <SoftInput type="number" placeholder="Employee Code" />
-            </SoftBox>
-            <SoftBox mb={2}>
               <SoftInput type="password" placeholder="Password" />
             </SoftBox>
-            
+            <SoftBox display="flex" alignItems="center">
+              <Checkbox checked={agreement} onChange={handleSetAgremment} />
+              <SoftTypography
+                variant="button"
+                fontWeight="regular"
+                onClick={handleSetAgremment}
+                sx={{ cursor: "poiner", userSelect: "none" }}
+              >
+                &nbsp;&nbsp;I agree the&nbsp;
+              </SoftTypography>
+              <SoftTypography
+                component="a"
+                href="#"
+                variant="button"
+                fontWeight="bold"
+                textGradient
+              >
+                Terms and Conditions
+              </SoftTypography>
+            </SoftBox>
             <SoftBox mt={4} mb={1}>
               <SoftButton variant="gradient" color="dark" fullWidth>
                 sign up
@@ -111,7 +96,8 @@ function SignUp() {
             </SoftBox>
           </SoftBox>
         </SoftBox>
-    </CoverLayout>
+      </Card>
+    </BasicLayout>
   );
 }
 

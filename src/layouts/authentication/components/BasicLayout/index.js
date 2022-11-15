@@ -18,9 +18,26 @@ import Footer from "layouts/authentication/components/Footer";
 
 function BasicLayout({ title, description, image, children }) {
   return (
-    <PageLayout background="linear-gradient(270deg, #0A2FB9 0%, #FF0080 100%)">
+    <PageLayout>
       <SoftBox
-       
+        width="calc(100% - 2rem)"
+        minHeight="50vh"
+        borderRadius="lg"
+        mx={2}
+        my={2}
+        pt={6}
+        pb={28}
+        sx={{
+          backgroundImage: ({ functions: { linearGradient, rgba }, palette: { gradients } }) =>
+            image &&
+            `${linearGradient(
+              rgba(gradients.dark.main, 0.6),
+              rgba(gradients.dark.state, 0.6)
+            )}, url(${image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
       >
         <Grid container spacing={3} justifyContent="center" sx={{ textAlign: "center" }}>
           <Grid item xs={10} lg={4}>
@@ -44,6 +61,7 @@ function BasicLayout({ title, description, image, children }) {
           </Grid>
         </Grid>
       </SoftBox>
+      <Footer />
     </PageLayout>
   );
 }

@@ -1,7 +1,7 @@
+import React from "react";
 import Grid from "@mui/material/Grid";
 import Icon from "@mui/material/Icon";
 // Soft UI Dashboard React examples
-import Table from "examples/Tables/Table";
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
@@ -21,7 +21,36 @@ import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import SoftInput from "components/SoftInput";
 import "../modal.css"
 import { useState } from "react";
+import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
+const columns: GridColDef[] = [
+  { field: 'orderNo', headerName: 'PRODUCTION ORDER NO', width: 200 },
+  { field: 'orderDate', headerName: 'ORDER DATE', width: 130 },
+  { field: 'productionItem', headerName: 'PRODUCTION ITEM', width: 200 },
+  {
+    field: 'quantityPlanned',
+    headerName: 'QUANTITY PLANNED',
+    type: 'number',
+    width: 200,
+  },
+  {
+    field: 'productionItemCode',
+    headerName: 'PRODUCTION ITEM CODE',
+    width: 200,
+  },
+];
+
+const rows = [
+  { id: 1, orderNo: 'Snow', orderDate: '12/03/2022', productionItem: 35,quantityPlanned:"Spotify Version" ,productionItemCode:'Progress Track'},
+  { id: 2, orderNo: 'Lannister', orderDate: '12/03/2022', productionItem: 42,quantityPlanned:"Spotify Version" ,productionItemCode:'Progress Track'},
+  { id: 3, orderNo: 'Lannister', orderDate: '12/03/2022', productionItem: 45,quantityPlanned:"Spotify Version",productionItemCode:'Progress Track' },
+  { id: 4, orderNo: 'Stark', orderDate: '12/03/2022', productionItem: 16,quantityPlanned:"Spotify Version" ,productionItemCode:'Progress Track'},
+  { id: 5, orderNo: 'Targaryen', orderDate: '12/03/2022', productionItem: null,quantityPlanned:"Spotify Version",productionItemCode:'Progress Track' },
+  { id: 6, orderNo: 'Melisandre', orderDate: null, productionItem: 150 ,quantityPlanned:"Spotify Version",productionItemCode:'Progress Track'},
+  { id: 7, orderNo: 'Clifford', orderDate: '12/03/2022', productionItem: 44 ,quantityPlanned:"Spotify Version",productionItemCode:'Progress Track'},
+  { id: 8, orderNo: 'Frances', orderDate: '12/03/2022', productionItem: 36 ,quantityPlanned:"Spotify Version",productionItemCode:'Progress Track'},
+  { id: 9, orderNo: 'Roxie', orderDate: '12/03/2022', productionItem: 65 ,quantityPlanned:"Spotify Version",productionItemCode:'Progress Track'},
+];
 
 function InventoryTransferRequest() {
   const { size } = typography;
@@ -176,59 +205,13 @@ function InventoryTransferRequest() {
             Filter Category
           </SoftButton>
         </SoftBox>
-        <SoftBox ml={13} mt={5} style={{marginRight:"80px"}}>
-        <Table
-        columns={[
-          { name: "PRODUCTIONORDERNO", align: "left" },
-          { name: "ORDERDATE", align: "left" },
-          { name: "PRODUCTIONITEM", align: "center" },
-          { name: "QUANTITYPLANNED", align: "center" },
-          { name: "PRODUCTIONITEMCODE", align: "center" },
-        ]}
-        rows={[
-          {
-            PRODUCTIONORDERNO: "John Micheal",
-            ORDERDATE: "23/04/18",
-            PRODUCTIONITEM : "john@user.com",
-            QUANTITYPLANNED: "Manager",
-            PRODUCTIONITEMCODE: "Spotify Version"
-          },
-          {
-            PRODUCTIONORDERNO: "John Micheal",
-            ORDERDATE: "23/04/18",
-            PRODUCTIONITEM : "john@user.com",
-            QUANTITYPLANNED: "Manager",
-            PRODUCTIONITEMCODE: "Spotify Version"
-          },
-          {
-            PRODUCTIONORDERNO: "John Micheal",
-            ORDERDATE: "23/04/18",
-            PRODUCTIONITEM : "john@user.com",
-            QUANTITYPLANNED: "Manager",
-            PRODUCTIONITEMCODE: "Spotify Version"
-          },
-          {
-            PRODUCTIONORDERNO: "John Micheal",
-            ORDERDATE: "23/04/18",
-            PRODUCTIONITEM : "john@user.com",
-            QUANTITYPLANNED: "Manager",
-            PRODUCTIONITEMCODE: "Spotify Version"
-          },
-          {
-            PRODUCTIONORDERNO: "John Micheal",
-            ORDERDATE: "23/04/18",
-            PRODUCTIONITEM : "john@user.com",
-            QUANTITYPLANNED: "Manager",
-            PRODUCTIONITEMCODE: "Spotify Version"
-          },
-          {
-            PRODUCTIONORDERNO: "John Micheal",
-            ORDERDATE: "23/04/18",
-            PRODUCTIONITEM : "john@user.com",
-            QUANTITYPLANNED: "Manager",
-            PRODUCTIONITEMCODE: "Spotify Version"
-          },
-        ]}
+        <SoftBox ml={8} mt={5} style={{marginRight:"80px",height:"400px"}} >
+        <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        checkboxSelection
       />
         </SoftBox>
         <SoftBox style={{ display: "flex"}} mt={4}>

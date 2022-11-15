@@ -39,8 +39,10 @@ function OtpVerification() {
             Enter OTP Here
             </SoftTypography>
           </SoftBox>
+          <SoftInput type="tel" placeholder="enter your otp" />
+          {/*
           <OTPInput value={OTP} onChange={setOTP} autoFocus OTPLength={6} otpType="number" disabled={false} secure />
-           {/*<ResendOTP onResendClick={() => console.log("Resend clicked")} />
+           <ResendOTP onResendClick={() => console.log("Resend clicked")} />
   */}
         </SoftBox>
         
@@ -56,9 +58,8 @@ function OtpVerification() {
             component={Link}
             to="/authentication/sign-up"
             variant="button"
-            color="info"
             fontWeight="medium"
-            textGradient
+            style={{color:'#0B2F8A'}}
           >
           Click here
           </SoftTypography>
