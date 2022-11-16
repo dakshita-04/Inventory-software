@@ -19,6 +19,7 @@ import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import SoftInput from "components/SoftInput";
 import "../modal.css"
 
+
 function InventoryReport() {
   const { size } = typography;
   const { chart, items } = reportsBarChartData;

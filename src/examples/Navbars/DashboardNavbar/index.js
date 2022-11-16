@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 // react-router components
@@ -130,18 +129,27 @@ function DashboardNavbar({ absolute, light, isMini }) {
     >
       <Toolbar sx={(theme) => navbarContainer(theme)}>
         <SoftBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
-        <Icon className={light ? "text-white" : "text-dark"}style={{color:"#FF0080"}}>rocket</Icon>
-        <SoftTypography style={{color:"#FF0080",fontSize:"25px"}} ><strong>Inventory Distribution</strong></SoftTypography>
-        </SoftBox> 
-        
+          <SoftTypography style={{ color: "#FF0080", fontSize: "25px" }}>
+            <strong>Inventory Distribution</strong>
+          </SoftTypography>
+        </SoftBox>
+        <Link to="/dashboard">
+          <SoftTypography style={{fontSize:"15px",fontWeight:"500"}}>
+          <Icon className={light ? "text-white" : "text-dark"} >home</Icon> Home</SoftTypography>
+        </Link>
         {isMini ? null : (
           <SoftBox sx={(theme) => navbarRow(theme, { isMini })}>
-          <SoftBox color="inherit" mb={{ xs: 1, md: 0 }} sx={(theme) => navbarRow(theme, { isMini })}>
-          <Breadcrumbs icon="home" title={route[route.length - 1]} route={route} light={light} />
-          <SoftBox pr={1} style={{color:"#0B2F8A",fontSize:"18px"}}>
-          <strong>Welcome, Admin Krishna Mohan</strong>
-          </SoftBox>
-          </SoftBox>
+            <SoftBox
+              color="inherit"
+              mb={{ xs: 1, md: 0 }}
+              sx={(theme) => navbarRow(theme, { isMini })}
+            >
+              {/*<Breadcrumbs icon="home" title={route[route.length - 1]} route={route} light={light} />*/}
+
+              <SoftBox pr={1} style={{ color: "#0B2F8A", fontSize: "18px" }}>
+                <strong>Welcome, Admin Krishna Mohan</strong>
+              </SoftBox>
+            </SoftBox>
             <SoftBox color={light ? "white" : "inherit"}>
               <Link to="/authentication/sign-in">
                 <IconButton sx={navbarIconButton} size="small">

@@ -29,13 +29,13 @@ function CoverLayout({ color, header, title, description, image, top, children }
       
         <Grid item xs={11} sm={8} md={5} xl={3}>
           <SoftBox mt={15}>
+          <SoftTypography style={{fontSize:"32px",fontWeight:"700",color:"#FF0080"}}>Inventory Distribution</SoftTypography>
+              
             <SoftBox pt={3} px={3}>
-              {!header ? (
+            {!header ? (
                 <>
-                
-                <SoftTypography style={{fontSize:"32px",fontWeight:"700",color:"#FF0080"}}>Inventory Distribution</SoftTypography>
                   <SoftBox mb={1}>
-                    <SoftTypography variant="h3" fontWeight="bold" textAlign="center" mt={3} style={{fontSize:"40px",color:"#0B2F8A"}}>
+                    <SoftTypography variant="h3" fontWeight="bold" textAlign="center"  style={{fontSize:"40px",color:"#0B2F8A"}}>
                     Get Started
                     </SoftTypography>
                   </SoftBox>

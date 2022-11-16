@@ -23,7 +23,7 @@ import "../modal.css"
 import { useState } from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
-const columns: GridColDef[] = [
+const columns = [
   { field: 'orderNo', headerName: 'PRODUCTION ORDER NO', width: 200 },
   { field: 'orderDate', headerName: 'ORDER DATE', width: 130 },
   { field: 'productionItem', headerName: 'PRODUCTION ITEM', width: 200 },
@@ -193,7 +193,7 @@ function InventoryTransferRequest() {
           >
           Your Inventory Transfer Request
           </SoftTypography>
-          <SoftButton
+          {/*<SoftButton
             variant="contained"
             color="info"
             style={{
@@ -203,9 +203,9 @@ function InventoryTransferRequest() {
             }}
           >
             Filter Category
-          </SoftButton>
+          </SoftButton>*/}
         </SoftBox>
-        <SoftBox ml={8} mt={5} style={{marginRight:"80px",height:"400px"}} >
+        <SoftBox ml={5} mt={5} style={{marginRight:"50px",height:"400px"}} >
         <DataGrid
         rows={rows}
         columns={columns}
@@ -217,6 +217,7 @@ function InventoryTransferRequest() {
         <SoftBox style={{ display: "flex"}} mt={4}>
         <SoftBox >
         <SoftButton
+        onClick={toggleModal}
             variant="contained"
             color="info"
             style={{
@@ -224,31 +225,6 @@ function InventoryTransferRequest() {
               boxShadow: " 0px 8px 24px -2px rgba(11, 47, 138, 0.6)",
               marginLeft: "100px",
             }}
-          >
-          Select All
-          </SoftButton>
-          <SoftButton
-            variant="contained"
-            color="info"
-            style={{
-              backgroundColor: "#0B2F8A",
-              boxShadow: " 0px 8px 24px -2px rgba(11, 47, 138, 0.6)",
-              marginLeft: "30px",
-            }}
-          >
-          DeSelect All
-          </SoftButton>
-        </SoftBox>
-        <SoftBox ml={70}>
-        <SoftButton
-            variant="contained"
-            color="info"
-            style={{
-              backgroundColor: "#0B2F8A",
-              boxShadow: " 0px 8px 24px -2px rgba(11, 47, 138, 0.6)",
-              marginLeft: "100px",
-            }}
-            onClick={toggleModal}
           >
           Add ITR
           </SoftButton>
@@ -261,9 +237,10 @@ function InventoryTransferRequest() {
               marginLeft: "30px",
             }}
           >
-          Cancel ITR
+            Cancel ITR
           </SoftButton>
         </SoftBox>
+        
         </SoftBox>
         
   <SoftBox style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>

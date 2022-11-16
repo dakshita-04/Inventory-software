@@ -21,6 +21,8 @@ import Separator from "layouts/authentication/components/Separator";
 
 // Images
 import curved6 from "assets/images/curved-images/curved14.jpg";
+import usrImage from "assets/images/curved-images/user.png"
+import { styled } from '@mui/material/styles';
 
 function SignUp() {
   const [agreement, setAgremment] = useState(true);
@@ -29,55 +31,66 @@ function SignUp() {
 
   return (
     <BasicLayout
-      title="Welcome!"
+      title="Inventory Distribution"
       description="Use these awesome forms to login or create new account in your project for free."
       image={curved6}
     >
       <Card>
         <SoftBox p={3} mb={1} textAlign="center">
-          <SoftTypography variant="h5" fontWeight="medium">
-            Register with
+          <SoftTypography variant="h3" fontWeight="bold" style={{color:"#0B2F8A"}}>
+            Register 
           </SoftTypography>
         </SoftBox>
-        <SoftBox mb={2}>
+        {/*
+      <SoftBox mb={2}>
+        
           <Socials />
         </SoftBox>
         <Separator />
+      */}
+      <SoftBox  textAlign="center">
+        <img src={usrImage} alt="image" style={{height:"60px",width:"60px"}}/>
+
+    </SoftBox>
         <SoftBox pt={2} pb={3} px={3}>
           <SoftBox component="form" role="form">
-            <SoftBox mb={2}>
+            <SoftBox>
+            <SoftTypography component="label" variant="caption" fontWeight="bold">
+            Full Name
+            </SoftTypography>
               <SoftInput placeholder="Name" />
             </SoftBox>
-            <SoftBox mb={2}>
-              <SoftInput type="email" placeholder="Email" />
+            <SoftBox >
+            <SoftTypography component="label" variant="caption" fontWeight="bold">
+            Phone Number
+            </SoftTypography>
+              <SoftInput type="tel" placeholder="9957349267" />
+            </SoftBox>
+            <SoftBox >
+            <SoftTypography component="label" variant="caption" fontWeight="bold">
+            Employee Code
+            </SoftTypography>
+              <SoftInput type="text" placeholder="AH0007854" />
+            </SoftBox>
+            <SoftBox >
+            <SoftTypography component="label" variant="caption" fontWeight="bold">
+            Email
+            </SoftTypography>
+              <SoftInput type="email" placeholder="krishnamohan@gmail.com" />
             </SoftBox>
             <SoftBox mb={2}>
+            <SoftTypography component="label" variant="caption" fontWeight="bold">
+            Password
+            </SoftTypography>
               <SoftInput type="password" placeholder="Password" />
             </SoftBox>
-            <SoftBox display="flex" alignItems="center">
-              <Checkbox checked={agreement} onChange={handleSetAgremment} />
-              <SoftTypography
-                variant="button"
-                fontWeight="regular"
-                onClick={handleSetAgremment}
-                sx={{ cursor: "poiner", userSelect: "none" }}
-              >
-                &nbsp;&nbsp;I agree the&nbsp;
-              </SoftTypography>
-              <SoftTypography
-                component="a"
-                href="#"
-                variant="button"
-                fontWeight="bold"
-                textGradient
-              >
-                Terms and Conditions
-              </SoftTypography>
-            </SoftBox>
             <SoftBox mt={4} mb={1}>
-              <SoftButton variant="gradient" color="dark" fullWidth>
-                sign up
+            <SoftTypography  component={Link}
+            to="/dashboard">
+            <SoftButton fullWidth style={{backgroundColor:"#0B2F8A",color:"white",boxShadow:"0px 8px 24px -2px rgba(11, 47, 138, 0.6)",borderRadius:"16px"}}>
+              Register
               </SoftButton>
+            </SoftTypography>
             </SoftBox>
             <SoftBox mt={3} textAlign="center">
               <SoftTypography variant="button" color="text" fontWeight="regular">

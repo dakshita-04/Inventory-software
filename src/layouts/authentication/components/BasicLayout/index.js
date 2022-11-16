@@ -1,4 +1,3 @@
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -42,7 +41,7 @@ function BasicLayout({ title, description, image, children }) {
         <Grid container spacing={3} justifyContent="center" sx={{ textAlign: "center" }}>
           <Grid item xs={10} lg={4}>
             <SoftBox mt={6} mb={1}>
-              <SoftTypography variant="h1" color="white" fontWeight="bold">
+              <SoftTypography variant="h2" style={{color:"#FF0080"}} fontWeight="bold">
                 {title}
               </SoftTypography>
             </SoftBox>

@@ -47,9 +47,9 @@ function OtpVerification() {
         </SoftBox>
         
         <SoftBox mt={4} mb={1} textAlign="center">
-          <SoftButton  style={{backgroundColor:"#0B2F8A",color:"white"}} size="large">
-          CONTINUE
-          </SoftButton>
+        <SoftButton fullWidth style={{backgroundColor:"#0B2F8A",color:"white",boxShadow:"0px 8px 24px -2px rgba(11, 47, 138, 0.6)",borderRadius:"16px"}}>
+        Continue
+        </SoftButton>
         </SoftBox>
         <SoftBox mt={3} textAlign="center">
         <SoftTypography variant="button" color="text" fontWeight="regular">
@@ -64,6 +64,20 @@ function OtpVerification() {
           Click here
           </SoftTypography>
         </SoftTypography>
+      </SoftBox>
+      <SoftBox textAlign="center">
+      <SoftTypography variant="button" color="text" fontWeight="regular">
+      Don&apos;t have an account?{" "}
+      <SoftTypography
+        component={Link}
+        to="/authentication/sign-up"
+        variant="button"
+        style={{color:'#0B2F8A'}}
+        fontWeight="medium"
+      >
+        Register
+      </SoftTypography>
+    </SoftTypography>
       </SoftBox>
       </SoftBox>
     </CoverLayout>
