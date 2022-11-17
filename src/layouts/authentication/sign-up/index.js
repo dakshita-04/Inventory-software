@@ -13,6 +13,7 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 import SoftInput from "components/SoftInput";
 import SoftButton from "components/SoftButton";
+import SoftAvatar from "components/SoftAvatar";
 
 // Authentication layout components
 import BasicLayout from "layouts/authentication/components/BasicLayout";
@@ -26,7 +27,6 @@ import { styled } from '@mui/material/styles';
 
 function SignUp() {
   const [agreement, setAgremment] = useState(true);
-
   const handleSetAgremment = () => setAgremment(!agreement);
 
   return (
@@ -48,9 +48,8 @@ function SignUp() {
         </SoftBox>
         <Separator />
       */}
-      <SoftBox  textAlign="center">
-        <img src={usrImage} alt="image" style={{height:"60px",width:"60px"}}/>
-
+      <SoftBox ml={17}>
+        <SoftAvatar src={usrImage} alt="Avatar" variant="circular" size="xl" box-shadow="xxl"/>
     </SoftBox>
         <SoftBox pt={2} pb={3} px={3}>
           <SoftBox component="form" role="form">

@@ -46,6 +46,7 @@ import GoodsFilterCategory from "layouts/goods-receipt/filter-category";
 import InventoryTransferRequestList from "layouts/inventory-transfer-request-list";
 import InventoryTransferApproval from "layouts/inventory-transfer-approval";
 import InventoryTransferRequest from "layouts/inventory-transfer-request";
+import EditProfile from "layouts/edit-profile";
 const routes = [
   {
     type: "collapse",
@@ -176,6 +177,15 @@ const routes = [
     component: <InventoryTransferApproval/>,
     noCollapse: true,
   },
+  {
+    type: "collapse",
+    name: "EditProfile",
+    key: "edit-profile",
+    route: "/edit-profile",
+    icon: <SpaceShip size="12px" />,
+    component: <EditProfile/>,
+    noCollapse: true,
+  }
 ];
 
 export default routes;

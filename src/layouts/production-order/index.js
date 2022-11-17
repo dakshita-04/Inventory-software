@@ -15,7 +15,6 @@ import reportsBarChartData from "layouts/dashboard/data/reportsBarChartData";
 import SoftInput from "components/SoftInput";
 import "../modal.css"
 import { useState } from "react";
-
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
 const columns = [
@@ -49,6 +48,7 @@ const rows = [
 
 
 function ProductionOrderList() {
+
   const { size } = typography;
   const { chart, items } = reportsBarChartData;
   const text = {
@@ -57,6 +57,7 @@ function ProductionOrderList() {
     fontWeight: "500",
     marginRight: "10px",
   };
+
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -79,93 +80,111 @@ function ProductionOrderList() {
           Production Order List
         </SoftTypography>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                From Document Date
-              </SoftTypography>
-              <SoftInput
-                placeholder="Enter From Order Date..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
-          <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                Order Status
-              </SoftTypography>
-              <SoftInput
-                placeholder="Enter Order Status..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
-          <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                Series
-              </SoftTypography>
-              <SoftInput
-                placeholder="Enter Series..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
+        <Grid item xs={12} sm={6} xl={4}>
+          <SoftBox display="flex">
+            <SoftTypography style={text} mt={1}>
+              From Document Date
+            </SoftTypography>
+            <SoftInput
+            type="date"
+              placeholder="Enter From Order Date..."
+              icon={{
+                component: "search",
+                direction: "left",
+              }}
+            />
+          </SoftBox>
         </Grid>
-        <Grid container spacing={2} mt={5}>
-          <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                To Document Date
-              </SoftTypography>
-              <SoftInput
-                placeholder="Enter To Order Date..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
-          <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                Warehouse
-              </SoftTypography>
-              <SoftInput
-                placeholder="Enter Warehouse..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
-          <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                Document Number
-              </SoftTypography>
-              <SoftInput
-                placeholder="Document Number..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
+        <Grid item xs={12} sm={6} xl={4}>
+        <SoftBox display="flex">
+        <SoftTypography style={text} mt={1}>
+          To Document Date
+        </SoftTypography>
+        <SoftBox ml={2}>
+        <SoftInput
+        type="date"
+          placeholder="Enter To Order Date..."
+          icon={{
+            component: "search",
+            direction: "left",
+          }}
+        />
+        </SoftBox>
+        
+      </SoftBox>
         </Grid>
+        <Grid item xs={12} sm={6} xl={4}>
+        <SoftBox display="flex">
+        <SoftTypography style={text} mt={1}>
+          Document Number
+        </SoftTypography>
+        <SoftBox ml={2}>
+        <SoftInput
+        placeholder="Document Number..."
+        icon={{
+          component: "search",
+          direction: "left",
+        }}
+      />
+        </SoftBox>
+       
+      </SoftBox>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} mt={2}>
+      <Grid item xs={12} sm={6} xl={4}>
+        
+        <SoftBox display="flex">
+          <SoftTypography style={text} mt={1}>
+          Order Status
+          </SoftTypography>
+          <SoftBox ml={7}>
+          <select id = "dropdown" style={{width:"190px",height:"37px",borderRadius:"8px",  padding: "0.25em 0.5em"}}>
+          <option value="" disabled selected hidden >Enter Order Status...</option>
+          <option value="1">Planned</option>
+          <option value="2">Receipt</option>
+      </select>
+      </SoftBox>
+         
+        </SoftBox>
+      </Grid>
+      <Grid item xs={12} sm={6} xl={4}>
+        
+      <SoftBox display="flex">
+      <SoftTypography style={text} mt={1}>
+      Warehouse
+      </SoftTypography>
+      <SoftBox ml={8}>
+      <SoftInput
+        placeholder="Enter Warehouse..."
+        icon={{
+          component: "search",
+          direction: "left",
+        }}
+      />
+      </SoftBox>
+      
+    </SoftBox>
+      </Grid>
+      <Grid item xs={12} sm={6} xl={4}>
+        <SoftBox display="flex">
+          <SoftTypography style={text} mt={1}>
+            Series
+          </SoftTypography>
+          <SoftBox ml={13}>
+          <SoftInput
+            placeholder="Enter Series..."
+            icon={{
+              component: "search",
+              direction: "left",
+            }}
+          />
+          </SoftBox>
+          
+        </SoftBox>
+       
+      </Grid>
+    </Grid>
         <SoftBox mt={6} >
         <SoftTypography component={Link}
         to="/filter-category">
@@ -214,6 +233,8 @@ function ProductionOrderList() {
           Add ITR
           </SoftButton>
           <SoftButton
+          component={Link}
+        to="/dashboard"
             variant="contained"
             color="info"
             style={{

@@ -189,6 +189,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
               >
                 <Icon>settings</Icon>
               </IconButton>
+              <Link to="/edit-profile">
               <IconButton
                 size="small"
                 color="inherit"
@@ -198,8 +199,10 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 variant="contained"
                 onClick={handleOpenMenu}
               >
-                <Icon className={light ? "text-white" : "text-dark"}>notifications</Icon>
+                <Icon className={light ? "text-white" : "text-dark"}>account_circle</Icon>
               </IconButton>
+              </Link>
+              
               {renderMenu()}
             </SoftBox>
           </SoftBox>

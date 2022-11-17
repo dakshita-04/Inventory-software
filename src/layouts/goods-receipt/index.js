@@ -89,6 +89,7 @@ function GoodsReceiptNote() {
                 From Document Date
               </SoftTypography>
               <SoftInput
+              type="date"
                 placeholder="Enter From Order Date..."
                 icon={{
                   component: "search",
@@ -116,6 +117,7 @@ function GoodsReceiptNote() {
               <SoftTypography style={text} mt={1}>
                 Series
               </SoftTypography>
+              <SoftBox ml={10}>
               <SoftInput
                 placeholder="Enter Series..."
                 icon={{
@@ -123,6 +125,7 @@ function GoodsReceiptNote() {
                   direction: "left",
                 }}
               />
+              </SoftBox>
             </SoftBox>
           </Grid>
         </Grid>
@@ -132,13 +135,16 @@ function GoodsReceiptNote() {
               <SoftTypography style={text} mt={1}>
                 To Document Date
               </SoftTypography>
+              <SoftBox ml={2}>
               <SoftInput
+              type="date"
                 placeholder="Enter To Order Date..."
                 icon={{
                   component: "search",
                   direction: "left",
                 }}
               />
+              </SoftBox>
             </SoftBox>
           </Grid>
           <Grid item xs={12} sm={6} xl={4}>
@@ -208,6 +214,8 @@ function GoodsReceiptNote() {
           Add ITR
           </SoftButton>
           <SoftButton
+          component={Link}
+        to="/dashboard"
             variant="contained"
             color="info"
             style={{

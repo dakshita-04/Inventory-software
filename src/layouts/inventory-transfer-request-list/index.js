@@ -84,6 +84,7 @@ function InventoryTransferRequestList() {
                 From Document Date
               </SoftTypography>
               <SoftInput
+              type="date"
                 placeholder="Enter From Order Date..."
                 icon={{
                   component: "search",
@@ -93,79 +94,94 @@ function InventoryTransferRequestList() {
             </SoftBox>
           </Grid>
           <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-              Order Status
-              </SoftTypography>
-              <SoftInput
-                placeholder="Enter Order Status..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
-          <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                Series
-              </SoftTypography>
-              <SoftInput
-                placeholder="Enter Series..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
-        </Grid>
-        <Grid container spacing={2} mt={5}>
-          <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                To Document Date
-              </SoftTypography>
-              <SoftInput
-                placeholder="Enter To Order Date..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
-          </Grid>
-          <Grid item xs={12} sm={6} xl={4}>
-            
           <SoftBox display="flex">
           <SoftTypography style={text} mt={1}>
-          Warehouse
+            To Document Date
           </SoftTypography>
+          <SoftBox ml={2}>
           <SoftInput
-            placeholder="Enter Warehouse..."
+          type="date"
+            placeholder="Enter To Order Date..."
             icon={{
               component: "search",
               direction: "left",
             }}
           />
+          </SoftBox>
+          
         </SoftBox>
           </Grid>
           <Grid item xs={12} sm={6} xl={4}>
-            <SoftBox display="flex">
-              <SoftTypography style={text} mt={1}>
-                Document Number
-              </SoftTypography>
-              <SoftInput
-                placeholder="Document Number..."
-                icon={{
-                  component: "search",
-                  direction: "left",
-                }}
-              />
-            </SoftBox>
+          <SoftBox display="flex">
+          <SoftTypography style={text} mt={1}>
+            Document Number
+          </SoftTypography>
+          <SoftBox ml={2}>
+          <SoftInput
+          placeholder="Document Number..."
+          icon={{
+            component: "search",
+            direction: "left",
+          }}
+        />
+          </SoftBox>
+         
+        </SoftBox>
           </Grid>
         </Grid>
+        <Grid container spacing={2} mt={2}>
+        <Grid item xs={12} sm={6} xl={4}>
+          
+          <SoftBox display="flex">
+            <SoftTypography style={text} mt={1}>
+            Order Status
+            </SoftTypography>
+            <SoftBox ml={7}>
+          <select id = "dropdown" style={{width:"190px",height:"37px",borderRadius:"8px",  padding: "0.25em 0.5em"}}>
+          <option value="" disabled selected hidden >Enter Order Status...</option>
+          <option value="1">Planned</option>
+          <option value="2">Receipt</option>
+      </select>
+      </SoftBox>
+           
+          </SoftBox>
+        </Grid>
+        <Grid item xs={12} sm={6} xl={4}>
+          
+        <SoftBox display="flex">
+        <SoftTypography style={text} mt={1}>
+        Warehouse
+        </SoftTypography>
+        <SoftBox ml={8}>
+        <SoftInput
+          placeholder="Enter Warehouse..."
+          icon={{
+            component: "search",
+            direction: "left",
+          }}
+        />
+        </SoftBox>
+        
+      </SoftBox>
+        </Grid>
+        <Grid item xs={12} sm={6} xl={4}>
+          <SoftBox display="flex">
+            <SoftTypography style={text} mt={1}>
+              Series
+            </SoftTypography>
+            <SoftBox ml={12}>
+            <SoftInput
+              placeholder="Enter Series..."
+              icon={{
+                component: "search",
+                direction: "left",
+              }}
+            />
+            </SoftBox>
+            
+          </SoftBox>
+        </Grid>
+      </Grid>
         <SoftBox mt={6} >
         <SoftTypography component={Link}
         to="/goods-filter-note">
@@ -214,6 +230,9 @@ function InventoryTransferRequestList() {
           Add ITR
           </SoftButton>
           <SoftButton
+          
+          component={Link}
+        to="/dashboard"
             variant="contained"
             color="info"
             style={{
