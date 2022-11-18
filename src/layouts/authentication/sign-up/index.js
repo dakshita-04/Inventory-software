@@ -1,13 +1,8 @@
-
 import { useState } from "react";
-
 // react-router-dom components
 import { Link } from "react-router-dom";
-
 // @mui material components
 import Card from "@mui/material/Card";
-import Checkbox from "@mui/material/Checkbox";
-
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
@@ -24,11 +19,38 @@ import Separator from "layouts/authentication/components/Separator";
 import curved6 from "assets/images/curved-images/curved14.jpg";
 import usrImage from "assets/images/curved-images/user.png"
 import { styled } from '@mui/material/styles';
+import { storage } from "../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 function SignUp() {
   const [agreement, setAgremment] = useState(true);
   const handleSetAgremment = () => setAgremment(!agreement);
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState(null);
 
+  const handleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0]);
+    }
+  };
+// for picture
+  const handleSubmit = () => {
+    const imageRef = ref(storage, "image");
+    uploadBytes(imageRef, image)
+      .then(() => {
+        getDownloadURL(imageRef)
+          .then((url) => {
+            setUrl(url);
+          })
+          .catch((error) => {
+            console.log(error.message, "error getting the image url");
+          });
+        setImage(null);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <BasicLayout
       title="Inventory Distribution"
@@ -49,7 +71,9 @@ function SignUp() {
         <Separator />
       */}
       <SoftBox ml={17}>
-        <SoftAvatar src={usrImage} alt="Avatar" variant="circular" size="xl" box-shadow="xxl"/>
+        <SoftAvatar src={url} alt="Avatar" variant="circular" size="xxl" box-shadow="xxl"/>
+        <input type="file" onChange={handleImageChange} />
+        <button onClick={handleSubmit}>Submit</button>
     </SoftBox>
         <SoftBox pt={2} pb={3} px={3}>
           <SoftBox component="form" role="form">
@@ -96,7 +120,7 @@ function SignUp() {
                 Already have an account?&nbsp;
                 <SoftTypography
                   component={Link}
-                  to="/authentication/sign-in"
+                  to="/pdf-convertor"
                   variant="button"
                   color="dark"
                   fontWeight="bold"

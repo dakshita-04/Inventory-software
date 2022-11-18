@@ -22,6 +22,7 @@ import SoftInput from "components/SoftInput";
 import "../modal.css"
 import { useState } from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import SoftAlert from "components/SoftAlert";
 
 const columns = [
   { field: 'orderNo', headerName: 'PRODUCTION ORDER NO', width: 200 },
@@ -177,6 +178,7 @@ function InventoryTransferApproval() {
               <SoftBox ml={13}>
               <SoftInput
                 placeholder="Enter Series..."
+                required
                 icon={{
                   component: "search",
                   direction: "left",

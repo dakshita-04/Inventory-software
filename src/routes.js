@@ -47,6 +47,8 @@ import InventoryTransferRequestList from "layouts/inventory-transfer-request-lis
 import InventoryTransferApproval from "layouts/inventory-transfer-approval";
 import InventoryTransferRequest from "layouts/inventory-transfer-request";
 import EditProfile from "layouts/edit-profile";
+import  UserAuthContextProvider from "layouts/context/user-auth";
+import DownloadPage from "layouts/pdf-convertor";
 const routes = [
   {
     type: "collapse",
@@ -185,7 +187,25 @@ const routes = [
     icon: <SpaceShip size="12px" />,
     component: <EditProfile/>,
     noCollapse: true,
-  }
+  },
+  {
+    type: "collapse",
+    name: "user-auth",
+    key: "user-auth",
+    route: "/user-auth",
+    icon: <SpaceShip size="12px" />,
+    component: <UserAuthContextProvider/>,
+    noCollapse: true,
+  },
+  {
+    type: "collapse",
+    name: "pdf-convertor",
+    key: "pdf-convertor",
+    route: "/pdf-convertor",
+    icon: <SpaceShip size="12px" />,
+    component: <DownloadPage/>,
+    noCollapse: true,
+  },
 ];
 
 export default routes;
